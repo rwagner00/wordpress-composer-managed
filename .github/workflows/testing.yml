@@ -12,13 +12,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Sync default branch to main
         run: |
-          echo "FINDME1"
-          git log --pretty=oneline
           git config user.name "Pantheon Automation"
           git config user.email "bot@getpantheon.com"
           git fetch --all
+          git checkout default
           git checkout main
-          echo "FINDME2"
-          git log --pretty=oneline
-          git merge --no-edit origin/default
+          git merge --no-edit default
           git push origin main
