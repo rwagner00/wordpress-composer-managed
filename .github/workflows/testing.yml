@@ -12,9 +12,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Sync default branch to main
         run: |
+          git log
           git config user.name "Pantheon Automation"
           git config user.email "bot@getpantheon.com"
           git fetch --all
           git checkout main
+          git log
           git merge --no-edit origin/default
           git push origin main
